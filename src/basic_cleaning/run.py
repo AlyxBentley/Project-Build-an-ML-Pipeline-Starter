@@ -14,12 +14,9 @@ logger = logging.getLogger()
 # DO NOT MODIFY
 def go(args):
 
-    run = wandb.init(job_type="basic_cleaning")
+    run = wandb.init(project="nyc_airbnb", job_type="basic_cleaning", group="cleaning", save_code=True)
     run.config.update(args)
 
-    # Download input artifact. This will also log that this script is using this
-    
-    run = wandb.init(project="nyc_airbnb", group="cleaning", save_code=True)
     artifact_local_path = run.use_artifact(args.input_artifact).file()
     df = pd.read_csv(artifact_local_path)
     # Drop outliers
@@ -51,17 +48,17 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="A very basic data cleaning")
   
-    parser.add_argument(
-        "--input_artifact", 
+    parser.add_argument( 
+        "--input_artifact",
         type = str,
-        help = "the input artifact",
+        help = "Initial artifact to be cleaned",
         required = True
     )
 
     parser.add_argument(
         "--output_artifact", 
         type = str,
-        help = "the name for the output artifact",
+        help = "Output artifact for cleaned data",
         required = True
     )
 
@@ -75,20 +72,20 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output_description", 
         type = str,
-        help = "a description of the output artifact",
+        help = "Type of the output dataset",
         required = True
     )
 
     parser.add_argument(
         "--min_price", 
-        type = int,
+        type = float,
         help = "the minimum price to consider",
         required = True
     )
 
     parser.add_argument(
         "--max_price",
-        type = int,
+        type = float,
         help = "the maximum price to consider",
         required = True
     )

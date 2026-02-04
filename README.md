@@ -1,4 +1,4 @@
-https://wandb.ai/abent97-western-governors-university/nyc_airbnb/artifacts/model_export/random_forest_export/v9/overview
+https://wandb.ai/abent97-western-governors-university/nyc_airbnb
 https://github.com/AlyxBentley/Project-Build-an-ML-Pipeline-Starter
 
 # Build an ML Pipeline for Short-Term Rental Prices in NYC

@@ -56,7 +56,7 @@ def go(config: DictConfig):
                 "main",
                 env_manager="conda",
                 parameters={
-                    "input_artifact": "raw_data/sample.csv:latest",
+                    "input_artifact": f"{config['main']['project_name']}/raw_data/sample.csv:latest",
                     "output_artifact": "clean_sample.csv",
                     "output_type": "clean_sample",
                     "output_description": "Cleaned dataset from sample.csv",
